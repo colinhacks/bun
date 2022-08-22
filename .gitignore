@@ -103,3 +103,6 @@ src/runtime.version
 *.sqlite
 *.database
 *.db
+
+# Local Netlify folder
+.netlify

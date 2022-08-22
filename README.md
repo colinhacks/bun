@@ -1,4 +1,4 @@
-# bun
+<h1>bun</h1>
 
 <p align="center">
   <a href="https://bun.sh"><img src="https://user-images.githubusercontent.com/709451/182802334-d9c42afe-f35d-4a7b-86ea-9985f73f20c3.png" alt="Logo" height=170></a>
@@ -44,18 +44,18 @@ If using Linux, kernel version 5.6 or higher is strongly recommended, but the mi
 - [Using bun.js - a new JavaScript runtime environment](#using-bunjs---a-new-javascript-runtime-environment)
   - [Types for bun.js (editor autocomplete)](#types-for-bunjs-editor-autocomplete)
   - [Fast paths for Web APIs](#fast-paths-for-web-apis)
-- [Using bun as a package manager](#using-bun-as-a-package-manager)
-- [Using bun as a task runner](#using-bun-as-a-task-runner)
-- [Creating a Discord bot with Bun](#creating-a-discord-bot-with-bun)
-  - [Application Commands](#application-commands)
-- [Using bun with Next.js](#using-bun-with-nextjs)
-- [Using bun with single page apps](#using-bun-with-single-page-apps)
-  - [Using bun with Create React App](#using-bun-with-create-react-app)
-- [Using bun with TypeScript](#using-bun-with-typescript)
-  - [Transpiling TypeScript with Bun](#transpiling-typescript-with-bun)
-  - [Adding Type Definitions](#adding-type-definitions)
-- [Not implemented yet](#not-implemented-yet)
-  - [Limitations & intended usage](#limitations--intended-usage)
+- [Package manager](#package-manager)
+- [Task runner](#task-runner)
+- [Examples](#examples)
+  - [Discord bot](#discord-bot)
+  - [Next.js](#nextjs)
+  - [Single page apps](#single-page-apps)
+  - [Create React App](#create-react-app)
+- [TypeScript](#typescript)
+  - [Transpiling](#transpiling)
+  - [Adding type definitions](#adding-type-definitions)
+  - [Not implemented yet](#not-implemented-yet)
+  - [Limitations & intended usage](#limitations-amp-intended-usage)
   - [Upcoming breaking changes](#upcoming-breaking-changes)
 - [Configuration](#configuration)
   - [bunfig.toml](#bunfigtoml)
@@ -107,7 +107,7 @@ If using Linux, kernel version 5.6 or higher is strongly recommended, but the mi
     - [What is the module ID hash?](#what-is-the-module-id-hash)
   - [`bun upgrade`](#bun-upgrade)
   - [`bun completions`](#bun-completions)
-- [`Bun.serve` - fast HTTP server](#bunserve---fast-http-server)
+- [`Bun.serve` - fast HTTP server](#bunserve-fast-http-server)
   - [Usage](#usage-1)
   - [Error handling](#error-handling)
 - [`Bun.write` – optimizing I/O](#bunwrite--optimizing-io)
@@ -130,7 +130,8 @@ If using Linux, kernel version 5.6 or higher is strongly recommended, but the mi
   - [Datatypes](#datatypes)
 - [`bun:ffi` (Foreign Functions Interface)](#bunffi-foreign-functions-interface)
   - [Low-overhead FFI](#low-overhead-ffi)
-  - [Usage](#usage-2)
+  - [Zig example](#zig-example)
+  - [Rust example](#rust-example)
   - [Supported FFI types (`FFIType`)](#supported-ffi-types-ffitype)
   - [Strings (`CString`)](#strings-cstring)
     - [Returning a string](#returning-a-string)
@@ -138,7 +139,7 @@ If using Linux, kernel version 5.6 or higher is strongly recommended, but the mi
   - [Pointers](#pointers)
     - [Passing a pointer](#passing-a-pointer)
     - [Reading pointers](#reading-pointers)
-    - [Not implemented yet](#not-implemented-yet-1)
+  - [Not implemented yet](#not-implemented-yet-1)
 - [Node-API (napi)](#node-api-napi)
 - [`Bun.Transpiler`](#buntranspiler)
   - [`Bun.Transpiler.transformSync`](#buntranspilertransformsync)
@@ -310,7 +311,7 @@ On Linux, this uses the [`copy_file_range`](https://man7.org/linux/man-pages/man
 await Bun.write("index.html", await fetch("https://example.com"));
 ```
 
-## Using bun as a package manager
+## Package manager
 
 On Linux, `bun install` tends to install packages 20x - 100x faster than `npm install`. On macOS, it’s more like 4x - 80x.
 
@@ -345,7 +346,7 @@ sudo apt install --install-recommends linux-generic-hwe-20.04
 
 </details>
 
-## Using bun as a task runner
+## Task runner
 
 Instead of waiting 170ms for your npm client to start for each task, you wait 6ms for bun.
 
@@ -370,11 +371,9 @@ Assuming a package.json with a `"clean"` command in `"scripts"`:
 }
 ```
 
-## Creating a Discord bot with Bun
+## Examples
 
-### Application Commands
-
-> Application commands are native ways to interact with apps in the Discord client. There are 3 types of commands accessible in different interfaces: the chat input, a message's context menu (top-right menu or right-clicking in a message), and a user's context menu (right-clicking on a user).
+### Discord Bot
 
 To get started you can use the interactions template:
 
@@ -398,9 +397,12 @@ mv .env.example .env
 bun run.js # listening on port 1337
 ```
 
+> Application commands are native ways to interact with apps in the Discord client. There are 3 types of commands accessible in different interfaces: the chat input, a message's context menu (top-right menu or right-clicking in a message), and a user's context menu (right-clicking on a user).
+
+
 Discord does not accept an insecure HTTP server, so you will need to provide an SSL certificate or put the interactions server behind a secure reverse proxy. For development, you can use ngrok/cloudflare tunnel to expose local ports as secure URL.
 
-## Using bun with Next.js
+### Next.js
 
 To create a new Next.js app with bun:
 
@@ -436,7 +438,7 @@ When using Next.js, bun automatically reads configuration from `.env.local`, `.e
 
 Currently, any time you import new dependencies from `node_modules`, you will need to re-run `bun bun --use next`. This will eventually be automatic.
 
-## Using bun with single-page apps
+### Single-page apps
 
 In your project folder root (where `package.json` is):
 
@@ -460,7 +462,7 @@ Here are examples of routing from `public/` and how they’re matched:
 
 If `public/index.html` exists, it becomes the default page instead of a 404 page, unless that pathname has a file extension.
 
-### Using bun with Create React App
+### Create React App
 
 To create a new React app:
 
@@ -499,9 +501,9 @@ You can override the public directory by passing `--public-dir="path-to-folder"`
 
 If no directory is specified and `./public/` doesn’t exist, bun will try `./static/`. If `./static/` does not exist, but won’t serve from a public directory. If you pass `--public-dir=./` bun will serve from the current directory, but it will check the current directory last instead of first.
 
-## Using bun with TypeScript
+## TypeScript
 
-### Transpiling TypeScript with Bun
+### Transpiling
 
 TypeScript just works. There’s nothing to configure and nothing extra to install. If you import a `.ts` or `.tsx` file, bun will transpile it into JavaScript. bun also transpiles `node_modules` containing `.ts` or `.tsx` files. This is powered by bun’s TypeScript transpiler, so it’s fast.
 
@@ -1855,6 +1857,12 @@ Installation:
 # bun:sqlite is built-in to bun.js
 ```
 
+
+bun:sqlite's API is loosely based on [better-sqlite3](https://github.com/JoshuaWise/better-sqlite3), though the implementation is different. It consists of two classes:
+
+- `class Database`
+- `class Statement`
+
 Example:
 
 ```ts
@@ -1893,7 +1901,7 @@ db.query("SELECT * FROM foo WHERE greeting = $greeting").get({
 // ]
 ```
 
-### bun:sqlite Benchmark
+### Benchmark
 
 Database: [Northwind Traders](https://github.com/jpwhite3/northwind-SQLite3/blob/46d5f8a64f396f87cd374d1600dbf521523980e8/Northwind_large.sqlite.zip).
 
@@ -1929,16 +1937,8 @@ In screenshot form (which has a different sorting order)
 
 <img width="738" alt="image" src="https://user-images.githubusercontent.com/709451/168459263-8cd51ca3-a924-41e9-908d-cf3478a3b7f3.png">
 
-### Getting started with bun:sqlite
 
-bun:sqlite's API is loosely based on [better-sqlite3](https://github.com/JoshuaWise/better-sqlite3), though the implementation is different.
-
-bun:sqlite has two classes:
-
-- `class Database`
-- `class Statement`
-
-#### `Database`
+### `Database`
 
 Calling `new Database(filename)` opens or creates the SQLite database.
 
@@ -2277,7 +2277,7 @@ To install sqlite with homebrew:
 brew install sqlite
 ```
 
-#### Statement
+### `Statement`
 
 `Statement` is a prepared statement. Use it to run queries that get results.
 
@@ -2495,7 +2495,7 @@ statement.finalize();
 statement.run();
 ```
 
-#### Statement.toString()
+### Statement.toString()
 
 Calling `toString()` on a `Statement` instance prints the expanded SQL query. This is useful for debugging.
 
@@ -2529,7 +2529,7 @@ console.log(statement.toString());
 
 Internally, this calls [`sqlite3_expanded_sql`](https://www.sqlite.org/capi3ref.html#sqlite3_expanded_sql).
 
-#### Datatypes
+### Datatypes
 
 | JavaScript type | SQLite type            |
 | --------------- | ---------------------- |
@@ -2541,7 +2541,7 @@ Internally, this calls [`sqlite3_expanded_sql`](https://www.sqlite.org/capi3ref.
 | `bigint`        | `INTEGER`              |
 | `null`          | `NULL`                 |
 
-### `bun:ffi` (Foreign Functions Interface)
+## `bun:ffi` (Foreign Functions Interface)
 
 `bun:ffi` lets you efficiently call native libraries from JavaScript. It works with languages that support the C ABI (Zig, Rust, C/C++, C#, Nim, Kotlin, etc).
 
@@ -2576,7 +2576,7 @@ const {
 console.log(`SQLite 3 version: ${sqlite3_libversion()}`);
 ```
 
-#### Low-overhead FFI
+### Low-overhead FFI
 
 3ns to go from JavaScript <> native code with `bun:ffi` (on my machine, an M1 Pro with 64GB of RAM)
 
@@ -2597,7 +2597,7 @@ To compile C, Bun embeds [TinyCC](https://github.com/TinyCC/tinycc), a small and
 
 </details>
 
-#### Usage
+### Zig example
 
 With Zig:
 
@@ -2631,7 +2631,7 @@ const lib = dlopen(path, {
 lib.symbols.add(1, 2);
 ```
 
-With Rust:
+### Rust example
 
 ```rust
 // add.rs
@@ -2647,7 +2647,7 @@ To compile:
 rustc --crate-type cdylib add.rs
 ```
 
-#### Supported FFI types (`FFIType`)
+### Supported FFI types (`FFIType`)
 
 | `FFIType` | C Type     | Aliases                     |
 | --------- | ---------- | --------------------------- |
@@ -2892,7 +2892,7 @@ If an API expects a pointer sized to something other than `char` or `u8`, make s
 
 A `u64*` is not exactly the same as `[8]u8*` due to alignment
 
-##### Passing a pointer
+#### Passing a pointer
 
 Where FFI functions expect a pointer, pass a TypedArray of equivalent size
 
@@ -2981,14 +2981,14 @@ var png = new Uint8Array(toArrayBuffer(out));
 await Bun.write("out.png", png);
 ```
 
-##### Not implemented yet
+#### Not implemented yet
 
 `bun:ffi` has a few more things planned but not implemented yet:
 
 - callback functions
 - async functions
 
-### Node-API (napi)
+## Node-API (napi)
 
 Bun.js implements 90% of the APIs available in [Node-API](https://nodejs.org/api/n-api.html) (napi).
 
@@ -3025,11 +3025,11 @@ import.meta.require("./my-node-module.node");
 
 Bun doesn't currently support dynamic requires, but `import.meta.require` is an escape hatch for that. It uses a [JavaScriptCore built-in function](https://github.com/oven-sh/bun/blob/aa87d40f4b7fdfb52575f44d151906ddba6a82d0/src/javascript/jsc/bindings/builtins/js/JSZigGlobalObject.js#L26).
 
-### `Bun.Transpiler`
+## `Bun.Transpiler`
 
 `Bun.Transpiler` lets you use Bun's transpiler from JavaScript (available in Bun.js)
 
-````ts
+```ts
 type Loader = "jsx" | "js" | "ts" | "tsx";
 
 interface TranspilerOptions {
@@ -3103,9 +3103,9 @@ type Import = {
 }
 
 const transpiler = new Bun.Transpiler({ loader: "jsx" });
-````
+```
 
-#### `Bun.Transpiler.transformSync`
+### `Bun.Transpiler.transformSync`
 
 This lets you transpile JavaScript, TypeScript, TSX, and JSX using Bun's transpiler. It does not resolve modules.
 
@@ -3135,7 +3135,7 @@ export default jsx(
 
 If a macro is used, it will be run in the same thread as the transpiler, but in a separate event loop from the rest of your application. Currently, globals between macros and regular code are shared, which means it is possible (but not recommended) to share states between macros and regular code. Attempting to use AST nodes outside of a macro is undefined behavior.
 
-#### `Bun.Transpiler.transform`
+### `Bun.Transpiler.transform`
 
 This lets you transpile JavaScript, TypeScript, TSX, and JSX using Bun's transpiler. It does not resolve modules.
 
@@ -3173,7 +3173,7 @@ You can also pass a `Loader` as a string
 await transpiler.transform("<div>hi!</div>", "tsx");
 ```
 
-#### `Bun.Transpiler.scan`
+### `Bun.Transpiler.scan`
 
 This is a fast way to get a list of imports & exports used in a JavaScript/jsx or TypeScript/tsx file.
 
@@ -3214,7 +3214,7 @@ export const loader = () => import('./loader');
 
 ```
 
-#### `Bun.Transpiler.scanImports`
+### `Bun.Transpiler.scanImports`
 
 This is a fast path for getting a list of imports used in a JavaScript/jsx or TypeScript/tsx file. It skips the visiting pass, which means it is faster but less accurate. You probably won't notice a difference between `Bun.Transpiler.scan` and `Bun.Transpiler.scanImports` often. You might notice it for very large files (megabytes).
 
