@@ -41,7 +41,7 @@ If using Linux, kernel version 5.6 or higher is strongly recommended, but the mi
 ## Table of Contents
 
 - [Install](#install)
-- [Using bun.js - a new JavaScript runtime environment](#using-bunjs---a-new-javascript-runtime-environment)
+- [Using bun.js](#using-bunjs)
   - [Types for bun.js (editor autocomplete)](#types-for-bunjs-editor-autocomplete)
   - [Fast paths for Web APIs](#fast-paths-for-web-apis)
 - [Package manager](#package-manager)
@@ -57,8 +57,7 @@ If using Linux, kernel version 5.6 or higher is strongly recommended, but the mi
   - [Not implemented yet](#not-implemented-yet)
   - [Limitations & intended usage](#limitations-amp-intended-usage)
   - [Upcoming breaking changes](#upcoming-breaking-changes)
-- [Configuration](#configuration)
-  - [bunfig.toml](#bunfigtoml)
+- [bunfig.toml](#bunfigtoml)
   - [Loaders](#loaders)
   - [CSS in JS](#css-in-js)
     - [When `platform` is `browser`](#when-platform-is-browser)
@@ -158,7 +157,7 @@ If using Linux, kernel version 5.6 or higher is strongly recommended, but the mi
   - [Troubleshooting (general)](#troubleshooting-general)
 - [vscode-zig](#vscode-zig)
 
-## Using bun.js - a new JavaScript runtime environment
+## Using bun.js
 
 bun.js focuses on performance, developer experience and compatibility with the JavaScript ecosystem.
 
@@ -257,7 +256,7 @@ There are some more examples in the [examples](./examples) folder.
 
 PRs adding more examples are very welcome!
 
-### Types for bun.js (editor autocomplete)
+### Types for bun.js (editor autocomplete) <!-- {docsify-ignore} -->
 
 The best docs right now are the TypeScript types in the [`bun-types`](https://github.com/oven-sh/bun-types) npm package. A docs site is coming soon.
 
@@ -289,7 +288,7 @@ You can also [view the types here](https://github.com/oven-sh/bun-types).
 
 To contribute to the types, head over to [oven-sh/bun-types](https://github.com/oven-sh/bun-types).
 
-### Fast paths for Web APIs
+### Fast paths for Web APIs <!-- {docsify-ignore} -->
 
 bun.js has fast paths for common use cases that make Web APIs live up to the performance demands of servers and CLIs.
 
@@ -576,9 +575,7 @@ Longer-term, bun intends to replace Node.js, Webpack, Babel, yarn, and PostCSS (
 - Bun's CLI flags will change to better support bun as a JavaScript runtime. They were chosen when bun was just a frontend development tool.
 - Bun's bundling format will change to accommodate production browser bundles and on-demand production bundling
 
-## Configuration
-
-### bunfig.toml
+## `bunfig.toml`
 
 bunfig.toml is bun's configuration file.
 
@@ -1633,7 +1630,7 @@ bun is distributed as a single binary file, so you can also do this manually:
 - Unzip the folder
 - Move the `bun` binary to `~/.bun/bin` (or anywhere)
 
-### Canary builds
+#### Canary builds
 
 [Canary](https://github.com/oven-sh/bun/releases/tag/canary) builds are generated on every commit.
 
@@ -2495,7 +2492,7 @@ statement.finalize();
 statement.run();
 ```
 
-### Statement.toString()
+#### Statement.toString()
 
 Calling `toString()` on a `Statement` instance prints the expanded SQL query. This is useful for debugging.
 
@@ -3476,7 +3473,7 @@ brew install pkg-config
 
 If you see an error about missing files on `zig build obj`, make sure you built the headers
 
-## vscode-zig
+### vscode-zig
 
 Note: this is automatically installed on the devcontainer
 
