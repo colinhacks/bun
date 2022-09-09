@@ -1,6 +1,7 @@
 .docs-page {
   display: flex;
   flex-direction: row;
+  background-color: #eeeeee;
 }
 
 .docs-sidebar {
@@ -69,9 +70,16 @@
   margin: 0px;
   padding: 7px 0px;
 }
-.docs-content .CodeBlock, .docs-content img, ,
-.docs-content ol, .docs-content ul, .docs-content table {
+.docs-content > .CodeBlock, 
+.docs-content > img,
+.docs-content > ol, 
+.docs-content > ul, 
+.docs-content > table, 
+.docs-content > details {
   margin: 8px 0px;
+}
+.docs-content > details > *:not(:first-child) {
+  padding-left: 15px;
 }
 .docs-content-wrapper h1 {
   font-size: 2em;
