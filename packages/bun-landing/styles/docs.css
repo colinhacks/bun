@@ -1,0 +1,157 @@
+.docs-page {
+  display: flex;
+  flex-direction: row;
+}
+
+.docs-sidebar {
+  width: 340px;
+  padding: 30px 0px 30px 10px;
+}
+.docs-sidebar h1, .docs-sidebar h2 {
+  line-height: 1;
+}
+.docs-sidebar *:hover {
+  text-decoration: none;
+}
+.docs-sidebar-section {
+  margin-top: 4px;
+  padding: 8px 10px 8px 10px;
+  border-radius: 4px;
+}
+
+.docs-sidebar-section * {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  color: var(--black); 
+}
+.docs-sidebar-section *:hover {
+  color: var(--dark-gray);
+}
+.docs-sidebar-subsection {
+  padding: 6px 10px 6px 10px;
+  border-radius: 4px;
+}
+.docs-sidebar-subsection *:hover {
+  color:var(--dark-gray);
+}
+.docs-sidebar-subsection * {
+  font-size: 13px;
+  opacity: 0.9;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+
+  color: var(--black);
+}
+.docs-sidebar-expanded{
+  color: var(--dark-gray);
+}
+.docs-sidebar-active{
+  background-color: #00000010;
+}
+
+.docs-sidebar-section.docs-sidebar-active * {
+  font-weight: 700;
+}
+
+.docs-spacer {
+  flex: 1;
+  min-width: 15px;
+}
+.docs-content-wrapper {
+  padding-top: 40px;
+  flex: 100%;
+  max-width: 720px;
+}
+.docs-content > * {
+  margin: 0px;
+  padding: 7px 0px;
+}
+.docs-content .CodeBlock, .docs-content img, ,
+.docs-content ol, .docs-content ul, .docs-content table {
+  margin: 8px 0px;
+}
+.docs-content-wrapper h1 {
+  font-size: 2em;
+  padding: 0.5em 0px 1.2em 0px;
+  font-weight: 900;
+}
+.docs-content > h2 {
+  padding: 0.6em 0px;
+  padding: 3em 0px 1.5em 0px;
+}
+.docs-content > h3 {
+  padding: 1.5em 0px 0.75em 0px;
+}
+.docs-content > h4 {
+  padding: 1em 0px .75em 0px;
+}
+.docs-content > h5 {
+  padding: 1em 0px .75em 0px;
+}
+.docs-content > p {
+  padding: 7px 0px;
+  line-height: 26px;
+}
+.docs-content ol, .docs-content ul {
+  padding-top: 3px;
+  list-style-position: inside;
+  padding-inline-start: 20px;
+}
+.docs-content li{
+  padding: 3px 0px;
+}
+.docs-content code {
+  background-color: #00000010;
+  font-size: 95%;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+.docs-content pre code {
+  font-size: 100%;
+  padding: 0px;
+  border-radius: 0px;
+  background-color: inherit;
+}
+.docs-content .CodeBlock .shiki{
+  overflow-x: scroll;
+  margin: 0px;
+}
+.docs-nav-button-row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+a.docs-nav-button {
+  text-decoration: none;
+}
+a.docs-nav-button:hover {
+  text-decoration: none;
+  transform: none;
+}
+.docs-nav-button p {
+  margin: 0;
+}
+.docs-nav-button > div{
+  width: 250px;
+  border-radius: 4px;
+  border: 2px solid #00000080;
+  padding: 8px 10px;
+}
+.docs-nav-button-note {
+  font-size: 11px;
+  opacity: 0.5;
+}
+.docs-nav-button-text{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.docs-nav-button > div:hover {
+  background-color: #00000010;
+}

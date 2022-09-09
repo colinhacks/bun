@@ -1,0 +1,27 @@
+// .docsPage {
+//   display: flex;
+//   flex-direction: row;
+// }
+// .sidebar{
+//   flex: 1;
+//   padding: 30px;
+// }
+// .sidebar h2 {
+//   font-size: 15px;
+// }
+// .sidebar h2 {
+//   font-size: 13px;
+// }
+// .content {
+//   flex: 100%;
+// }
+// .spacer {
+//   flex: 1;
+// }
+
+.docs-page {
+  background-color: red;
+}
+.docs-page * {
+  border: 2px solid red;
+}

@@ -1,5 +1,7 @@
 :root {
   --black: #0b0a08;
+  --dark-gray: #403c3a; 
+  /* #2e2b29; */
   --blue: #00a6e1;
   --orange: #f89b4b;
   --orange-light: #d4d3d2;
@@ -16,6 +18,9 @@
   --horizontal-padding: 3rem;
   --vertical-padding: 4rem;
   --line-height: 1.4;
+  
+  --phone: 600px;
+  --tablet: 900px;
 }
 
 * {
@@ -785,8 +790,8 @@ header {
   }
 
   .CodeBlock .shiki {
-    padding: 24px 16px;
-    margin: calc(-1 * var(--horizontal-padding));
+    /* padding: 24px 16px; */
+    margin: 0 calc(-1 * var(--horizontal-padding));
     width: calc(
       100vw - var(--horizontal-padding) - var(--horizontal-padding) -2px
     );

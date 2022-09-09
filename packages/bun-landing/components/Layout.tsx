@@ -1,7 +1,7 @@
-import Head from "next/head";
-import { dataURI } from "macro:./dataURI";
+import Head from 'next/head';
+import {dataURI} from 'macro:../util/dataURI';
 
-export default function Layout({ children }) {
+export default function Layout({children}) {
   return (
     <>
       <Head>
@@ -29,7 +29,7 @@ export default function Layout({ children }) {
       a native bundler, transpiler, task runner and npm client built-in.`}
         />
         <meta name="theme-color" content="#fbf0df" />
-        <link rel="manifest" href="manifest.json" />
+        <link rel="manifest" href="/manifest.json" />
         <link
           rel="icon"
           type="image/png"
@@ -55,7 +55,7 @@ export default function Layout({ children }) {
             <a href="/" id="logo-link" aria-label="home">
               <img
                 height="61px"
-                src={dataURI("../public/logo.svg", "components/Layout.tsx")}
+                src={dataURI('../public/logo.svg', 'components/Layout.tsx')}
                 alt="Bun logo"
                 id="logo"
               />
@@ -64,7 +64,7 @@ export default function Layout({ children }) {
                 alt="Bun"
                 id="logo-text"
                 height="31.65px"
-                src={dataURI("../public/Bun@2x.png", "components/Layout.tsx")}
+                src={dataURI('../public/Bun@2x.png', 'components/Layout.tsx')}
               />
             </a>
 

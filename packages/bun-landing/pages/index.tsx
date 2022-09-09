@@ -1,32 +1,32 @@
-import CodeBlock from "../components/CodeBlock";
+import CodeBlock from '../components/CodeBlock';
 
-const Command = ({ children, href, Tag = href ? "a" : "span" }) => (
+const Command = ({children, href, Tag = href ? 'a' : 'span'}) => (
   <Tag target="_blank" href={href} className="Tag Tag--Command">
     {children}
   </Tag>
 );
-const WebAPI = ({ children, href, Tag = href ? "a" : "span" }) => (
+const WebAPI = ({children, href, Tag = href ? 'a' : 'span'}) => (
   <Tag target="_blank" href={href} className="Tag Tag--WebAPI">
     {children}
   </Tag>
 );
-const NodeJS = ({ children, href, Tag = href ? "a" : "span" }) => (
+const NodeJS = ({children, href, Tag = href ? 'a' : 'span'}) => (
   <Tag target="_blank" href={href} className="Tag Tag--NodeJS">
     {children}
   </Tag>
 );
-const TypeScript = ({ children, href, Tag = href ? "a" : "span" }) => (
+const TypeScript = ({children, href, Tag = href ? 'a' : 'span'}) => (
   <Tag target="_blank" href={href} className="Tag Tag--TypeScript">
     {children}
   </Tag>
 );
-const React = ({ children, href, Tag = href ? "a" : "span" }) => (
+const React = ({children, href, Tag = href ? 'a' : 'span'}) => (
   <Tag target="_blank" className="Tag Tag--React">
     {children}
   </Tag>
 );
 
-const Bun = ({ children, href, Tag = href ? "a" : "span" }) => (
+const Bun = ({children, href, Tag = href ? 'a' : 'span'}) => (
   <Tag target="_blank" href={href} className="Tag Tag--Bun">
     {children}
   </Tag>
@@ -34,7 +34,7 @@ const Bun = ({ children, href, Tag = href ? "a" : "span" }) => (
 
 const fmt = new Intl.NumberFormat();
 
-const Label = ({ children, replace }) => {
+const Label = ({children, replace}) => {
   if (replace) {
     return (
       <div className="Label">
@@ -46,21 +46,21 @@ const Label = ({ children, replace }) => {
   return <div className="Label">{children}</div>;
 };
 
-const BarGraphItem = ({ type, amount = 0, label, max = 0 }) => (
+const BarGraphItem = ({type, amount = 0, label, max = 0}) => (
   <li
     className={`BarGraphItem BarGraphItem--${type}`}
-    style={{ "--amount": amount, "--max": max }}
+    style={{'--amount': amount, '--max': max}}
   >
     <div className="visually-hidden">{`${type}: ${fmt.format(
       amount
     )} ${label}`}</div>
     <div
-      style={{ "--amount": amount, "--max": max }}
+      style={{'--amount': amount, '--max': max}}
       className="BarGraphBar"
       aria-hidden
     >
       <div
-        style={{ "--amount": amount, "--max": max }}
+        style={{'--amount': amount, '--max': max}}
         className="BarGraphBar-label"
       >
         {fmt.format(amount)}
@@ -69,7 +69,7 @@ const BarGraphItem = ({ type, amount = 0, label, max = 0 }) => (
   </li>
 );
 
-const BarGraphLabel = ({ name, version, source }) => (
+const BarGraphLabel = ({name, version, source}) => (
   <a
     href={source}
     target="_blank"
@@ -82,7 +82,7 @@ const BarGraphLabel = ({ name, version, source }) => (
   </a>
 );
 
-const PerformanceClaim = ({ href, children }) => (
+const PerformanceClaim = ({href, children}) => (
   <a href={href} target="_blank" className="PerformanceClaim">
     {children}
   </a>
@@ -156,10 +156,10 @@ const Zig = () => (
   </svg>
 );
 
-const InstallBox = ({ desktop = false }) => (
+const InstallBox = ({desktop = false}) => (
   <div
     className={
-      "InstallBox " + (desktop ? "InstallBox--desktop" : "InstallBox--mobile")
+      'InstallBox ' + (desktop ? 'InstallBox--desktop' : 'InstallBox--mobile')
     }
   >
     <div className="InstallBox-label">
@@ -186,7 +186,7 @@ const InstallBox = ({ desktop = false }) => (
   </div>
 );
 
-const Group = ({ children, ...props }) => (
+const Group = ({children, ...props}) => (
   <div {...props} className="Group">
     {children}
   </div>
@@ -259,7 +259,7 @@ export default function LandingPage() {
                   HTTP requests per second (Linux AMD64)
                 </p>
 
-                <ul style={{ "--count": 3 }} className="BarGraphList">
+                <ul style={{'--count': 3}} className="BarGraphList">
                   <BarGraphItem
                     type="bun"
                     amount={48936}
@@ -280,7 +280,7 @@ export default function LandingPage() {
                   />
                 </ul>
 
-                <div style={{ "--count": 3 }} className="BarGraphKey">
+                <div style={{'--count': 3}} className="BarGraphKey">
                   <BarGraphLabel
                     name="bun"
                     version="v0.1.0"
@@ -311,7 +311,7 @@ export default function LandingPage() {
                   Average queries per second
                 </p>
 
-                <ul style={{ "--count": 3 }} className="BarGraphList">
+                <ul style={{'--count': 3}} className="BarGraphList">
                   <BarGraphItem
                     type="bun"
                     amount={(1000 / 16.6).toFixed(2)}
@@ -338,7 +338,7 @@ export default function LandingPage() {
                   />
                 </ul>
 
-                <div style={{ "--count": 3 }} className="BarGraphKey">
+                <div style={{'--count': 3}} className="BarGraphKey">
                   <BarGraphLabel
                     name="bun:sqlite"
                     version="v0.1.0"
@@ -369,7 +369,7 @@ export default function LandingPage() {
                 </h2>
                 <p className="BarGraph-subheading">Operations per second</p>
 
-                <ul style={{ "--count": 3 }} className="BarGraphList">
+                <ul style={{'--count': 3}} className="BarGraphList">
                   <BarGraphItem
                     type="bun"
                     amount={(13080444).toFixed(2)}
@@ -390,7 +390,7 @@ export default function LandingPage() {
                   />
                 </ul>
 
-                <div style={{ "--count": 3 }} className="BarGraphKey">
+                <div style={{'--count': 3}} className="BarGraphKey">
                   <BarGraphLabel
                     name="bun:ffi"
                     version="v0.1.3"
@@ -434,10 +434,10 @@ export default function LandingPage() {
             Bun is designed as a drop-in replacement for your current JavaScript
             &amp; TypeScript apps or scripts — on your local computer, server or
             on the edge. Bun natively implements hundreds of Node.js and Web
-            APIs, including ~90% of{" "}
+            APIs, including ~90% of{' '}
             <a href="https://nodejs.org/api/n-api.html" target="_blank">
               Node-API
-            </a>{" "}
+            </a>{' '}
             functions (native modules), fs, path, Buffer and more.
           </p>
           <p>
@@ -449,18 +449,18 @@ export default function LandingPage() {
           <h2>Batteries included</h2>
           <ul id="batteries">
             <li>
-              Web APIs like{" "}
+              Web APIs like{' '}
               <WebAPI href="https://developer.mozilla.org/en-US/docs/Web/API/fetch">
                 fetch
               </WebAPI>
-              ,{" "}
+              ,{' '}
               <WebAPI href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket">
                 WebSocket
               </WebAPI>
-              , and{" "}
+              , and{' '}
               <WebAPI href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream">
                 ReadableStream
-              </WebAPI>{" "}
+              </WebAPI>{' '}
               are built-in
             </li>
             <li>
@@ -469,7 +469,7 @@ export default function LandingPage() {
               CommonJS are supported, but Bun internally uses ESM
             </li>
             <li>
-              In Bun, every file is transpiled.{" "}
+              In Bun, every file is transpiled.{' '}
               <TypeScript>TypeScript</TypeScript> &amp; <React>JSX</React> just
               work
             </li>
@@ -482,23 +482,23 @@ export default function LandingPage() {
               available as an API in Bun
             </li>
             <li>
-              use the fastest system calls available with <Bun>Bun.write</Bun>{" "}
+              use the fastest system calls available with <Bun>Bun.write</Bun>{' '}
               to write, copy, pipe, send and clone files
             </li>
             <li>
-              Bun automatically loads environment variables from <Bun>.env</Bun>{" "}
-              files. No more{" "}
+              Bun automatically loads environment variables from <Bun>.env</Bun>{' '}
+              files. No more{' '}
               <code className="mono">require("dotenv").config()</code>
             </li>
             <li>
-              Bun ships with a fast SQLite3 client built-in{" "}
+              Bun ships with a fast SQLite3 client built-in{' '}
               <Bun>bun:sqlite</Bun>
             </li>
             <li>
               <NodeJS href="https://github.com/oven-sh/bun/issues/158">
                 Node-API
-              </NodeJS>{" "}
-              Bun implements most of{" "}
+              </NodeJS>{' '}
+              Bun implements most of{' '}
               <a
                 href="https://nodejs.org/api/n-api.html#node-api"
                 target="_blank"
@@ -520,19 +520,19 @@ export default function LandingPage() {
 
           <h2>How does Bun work?</h2>
           <p>
-            Bun uses the{" "}
+            Bun uses the{' '}
             <a href="https://github.com/WebKit/WebKit/tree/main/Source/JavaScriptCore">
               JavaScriptCore
-            </a>{" "}
-            engine, which tends{" "}
+            </a>{' '}
+            engine, which tends{' '}
             <a
               target="blank"
               href="https://twitter.com/jarredsumner/status/1499225725492076544"
             >
               to start
-            </a>{" "}
+            </a>{' '}
             and perform a little faster than more traditional choices like V8.
-            Bun is written in{" "}
+            Bun is written in{' '}
             <a href="https://ziglang.org/">
               <Zig></Zig>
             </a>
@@ -547,12 +547,12 @@ export default function LandingPage() {
           <p>
             An enormous amount of time spent profiling, benchmarking and
             optimizing things. The answer is different for every part of Bun,
-            but one general theme:{" "}
+            but one general theme:{' '}
             <a href="https://ziglang.org/">
               <Zig></Zig>
             </a>
             's low-level control over memory and lack of hidden control flow
-            makes it much simpler to write fast software.{" "}
+            makes it much simpler to write fast software.{' '}
             <a href="https://github.com/sponsors/ziglang">
               Sponsor the Zig Software Foundation
             </a>
@@ -560,25 +560,25 @@ export default function LandingPage() {
           </p>
           <h2>Getting started</h2>
           <p>
-            To install Bun, run this{" "}
+            To install Bun, run this{' '}
             <a target="_blank" href="https://bun.sh/install">
               install script
-            </a>{" "}
+            </a>{' '}
             in your terminal. It downloads Bun from GitHub.
           </p>
           <CodeBlock lang="shell">{`
 curl https://bun.sh/install | bash
           `}</CodeBlock>
           <p>
-            {" "}
-            Bun's HTTP server is built on web standards like{" "}
+            {' '}
+            Bun's HTTP server is built on web standards like{' '}
             <a
               className="Identifier"
               href="https://developer.mozilla.org/en-US/docs/Web/API/Request"
             >
               Request
-            </a>{" "}
-            and{" "}
+            </a>{' '}
+            and{' '}
             <a
               className="Identifier"
               href="https://developer.mozilla.org/en-US/docs/Web/API/Response"
@@ -598,20 +598,20 @@ export default {
           <p>Run it with Bun:</p>
           <CodeBlock lang="shell">{`bun run http.js`}</CodeBlock>
           <p>
-            Then open{" "}
+            Then open{' '}
             <a target="_blank" href="http://localhost:3000">
               http://localhost:3000
-            </a>{" "}
+            </a>{' '}
             in your browser.
             <br />
             <br />
-            See{" "}
+            See{' '}
             <a href="https://github.com/oven-sh/bun/tree/main/examples">
               more examples
-            </a>{" "}
-            and check out{" "}
+            </a>{' '}
+            and check out{' '}
             <a href="https://github.com/oven-sh/bun#Reference">the docs</a>. If
-            you have any questions or want help, join{" "}
+            you have any questions or want help, join{' '}
             <a href="https://bun.sh/discord">Bun's Discord</a>.
           </p>
 
@@ -620,31 +620,31 @@ export default {
             <Command>bun run</Command>
             <p>
               The same command for running JavaScript &amp; TypeScript files
-              with bun's JavaScript runtime also runs package.json{" "}
+              with bun's JavaScript runtime also runs package.json{' '}
               <code className="mono">"scripts"</code>.
             </p>
             <strong>
-              Replace <code className="mono">npm run</code> with{" "}
+              Replace <code className="mono">npm run</code> with{' '}
               <code className="mono">bun run</code> and save 160ms on every run.
             </strong>
             <br />
             <div>
-              Bun runs package.json scripts{" "}
+              Bun runs package.json scripts{' '}
               <PerformanceClaim href="https://twitter.com/jarredsumner/status/1454218996983623685">
                 30x faster than <code className="mono">npm run</code>
               </PerformanceClaim>
-            </div>{" "}
+            </div>{' '}
           </Group>
 
           <Group>
             <Command>bun install</Command>
             <p>
-              <code classsName="mono">bun install</code> is an npm-compatible
+              <code className="mono">bun install</code> is an npm-compatible
               package manager. You probably will be surprised by how much faster
               copying files can get.
             </p>
             <strong>
-              Replace <code className="mono">yarn</code> with{" "}
+              Replace <code className="mono">yarn</code> with{' '}
               <code className="mono">bun install</code> and get 20x faster
               package installs.
             </strong>
@@ -663,7 +663,7 @@ export default {
             <Label>
               <PerformanceClaim href="https://twitter.com/jarredsumner/status/1542824445810642946">
                 You've never seen a JavaScript test runner this fast
-              </PerformanceClaim>{" "}
+              </PerformanceClaim>{' '}
               (or incomplete).
             </Label>
           </Group>

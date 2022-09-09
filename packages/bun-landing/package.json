@@ -2,19 +2,25 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "tailwind": "tailwindcss -i ./styles/tailwind.css -o ./styles/output.css --watch"
   },
   "dependencies": {
+    "marked": "^4.0.19",
     "next": "12.2.3",
     "react": "^18",
     "react-dom": "^18",
     "react-is": "^17.0.2",
+    "react-markdown": "^8.0.3",
     "shiki": "0.10.1"
   },
   "devDependencies": {
-    "@types/react": "^18",
+    "@types/marked": "^4.0.6",
     "@types/node": "latest",
+    "@types/react": "^18",
     "bun-framework-next": "^12",
+    "bun-types": "latest",
+    "tailwindcss": "^3.1.8",
     "typescript": "latest"
   }
 }
