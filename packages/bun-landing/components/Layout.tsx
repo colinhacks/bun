@@ -71,10 +71,7 @@ export default function Layout({children}) {
             <nav className="Navigation">
               <ul>
                 <li>
-                  <a
-                    className="NavText"
-                    href="https://github.com/oven-sh/bun#Reference"
-                  >
+                  <a className="NavText" href="/docs">
                     Docs
                   </a>
                 </li>
